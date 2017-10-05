@@ -46,7 +46,7 @@ Sevcsik Marcell (<b>...</b>) , Peitli Zoltán (<b>C14ZVE</b>)
       <td>...</td>
    </tr>
 </table>
-   * <b>Azonosított felhasználó</b>
+* <b>Azonosított felhasználó</b>
 <table>
    <tr>
       <td>Szerepkör neve:</td>
@@ -69,7 +69,7 @@ Sevcsik Marcell (<b>...</b>) , Peitli Zoltán (<b>C14ZVE</b>)
       <td>...</td>
    </tr>
 </table>
-   * <b>Adminisztrátor</b>
+* <b>Adminisztrátor</b>
 <table>
    <tr>
       <td>Szerepkör neve:</td>
