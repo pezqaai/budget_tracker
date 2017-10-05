@@ -46,6 +46,7 @@ Sevcsik Marcell (<b>...</b>) , Peitli Zoltán (<b>C14ZVE</b>)
       <td>...</td>
    </tr>
 </table>
+
 * <b>Azonosított felhasználó</b>
 <table>
    <tr>
@@ -69,6 +70,7 @@ Sevcsik Marcell (<b>...</b>) , Peitli Zoltán (<b>C14ZVE</b>)
       <td>...</td>
    </tr>
 </table>
+
 * <b>Adminisztrátor</b>
 <table>
    <tr>
