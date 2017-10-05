@@ -83,7 +83,7 @@ Sevcsik Marcell (<b>...</b>) , Peitli Zoltán (<b>C14ZVE</b>)
    </tr>
    <tr>
       <td>Profil adatok:</td>
-      <td>A...</td>
+      <td>...</td>
    </tr>
    <tr>
       <td>Objektumok olvasása:</td>
