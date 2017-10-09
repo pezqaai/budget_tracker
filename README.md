@@ -21,10 +21,14 @@ Az admin felhasználó látja el a jóváhagyó szerepkört. Miután elfogadja a
    * <b>Skálázhatóság:</b> A becsült felhasználó-létszám nem igényli skálázható rendszer tervezését (a későbbiekben a rendszer és a cég növekedésével ez változhat).
    * <b>Biztonság:</b> A felhasználók és az adminok jelszavai ne legyenek visszafejthetőek. A hibásan bevitt adatokat a rendszer lekezeli, autentikációs probléma esetén legyen lehetőség a hiba jelzésére. Egy projekthez csak egy account tartozhat. A látogatók által elérhető beviteli mezőkön a rendszer végezzen szűrést ártalmas kódokra.
    * <b>Karbantarthatóság:</b> Törekedni kell a felület könnyű bővíthetőségére és módosíthatóságára.
-   * <b>Minőségi elvárások, felhasználói oldalról:</b> A webes alkalmazás legyen elérhető több platformról és különböző böngészőkből is. Működése legyen akadálymentes és az oldalak legyenek 
-validak a megfelelő szabványok szerint.
+   * <b>Minőségi elvárások, felhasználói oldalról:</b> A webes alkalmazás legyen elérhető több platformról és különböző böngészőkből is. Működése legyen akadálymentes és az oldalak legyenek validak a megfelelő szabványok szerint.
 
 ## 4) Fogalomjegyzék
+
+Felhasználó (user): A felhasználó az a személy (végfelhasználó, end-user) vagy szoftver ágens, aki egy számítógépes vagy számítógép-hálózati szolgáltatás használója. A felhasználóhoz gyakran felhasználói fiók tartozik, amit felhasználói név (username, screen name, nick vagy handle) azonosít.
+Jelszó: A jelszó, vagy más néven kulcsszó, kódszó, kód, vagy jelmondat, egy jelből vagy jelsorból álló kifejezés, melyet azonosításnál, illetve hitelesítéshez használunk.
+Alkalmazás: Az alkalmazás egy számítógépes program, ami egy fordítóprogram segítségével készül el egy forráskódból.
+Autentikáció: A felhasználó adatainak ellenőrzése az alkalmazásba történő belépés során.
 
 ## 5) Szerepkörök
 
