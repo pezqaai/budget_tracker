@@ -44,15 +44,15 @@ Az admin felhasználó látja el a jóváhagyó szerepkört. Miután elfogadja a
    </tr>
    <tr>
       <td>Profil adatok:</td>
-      <td>...</td>
+      <td>Nem rendelkezik vele.</td>
    </tr>
    <tr>
       <td>Objektumok olvasása:</td>
-      <td>...</td>
+      <td>Autentikációs felület.</td>
    </tr>
    <tr>
       <td>Objektumok módosítása:</td>
-      <td>...</td>
+      <td>Nem rendelkezik vele.</td>
    </tr>
 </table>
 
@@ -60,23 +60,23 @@ Az admin felhasználó látja el a jóváhagyó szerepkört. Miután elfogadja a
 <table>
    <tr>
       <td>Szerepkör neve:</td>
-      <td>simple_user</td>
+      <td>project_user</td>
    </tr>
    <tr>
       <td>Leírás:</td>
-      <td>...</td>
+      <td>Regisztrált felhasználó korlátozott írás és olvasási jogokkal. Az alkalmazás az ő igényeit hivatott kielégíteni a beépített funkcióival.</td>
    </tr>
    <tr>
       <td>Profil adatok:</td>
-      <td>...</td>
+      <td>Az admin által előre megadott, vagy létrehozott adatok.</td>
    </tr>
    <tr>
       <td>Objektumok olvasása:</td>
-      <td>...</td>
+      <td>Saját magához tartozó project adatok és fejlesztési lista elérése.</td>
    </tr>
    <tr>
       <td>Objektumok módosítása:</td>
-      <td>...</td>
+      <td>A még nem lezárt tételek módosítása és törlése.</td>
    </tr>
 </table>
 
@@ -88,18 +88,18 @@ Az admin felhasználó látja el a jóváhagyó szerepkört. Miután elfogadja a
    </tr>
    <tr>
       <td>Leírás:</td>
-      <td>...</td>
+      <td>Szuper felhasználó, aki sokkal több írás/olvasás joggal rendelkezik a többi felhasználóhoz képest. Feladata elsősorban a felmerülő hibák és problémák elhárítása, új projekt felhasználók létrehozása, profiluk szerkesztése.</td>
    </tr>
    <tr>
       <td>Profil adatok:</td>
-      <td>...</td>
+      <td>A rendszerben előre létrehozott profil, más user nem rendelkezhet hasonló jogkörökkel.</td>
    </tr>
    <tr>
       <td>Objektumok olvasása:</td>
-      <td>...</td>
+      <td>Az alkalmazáson belül mindenhez rendelkezik olvasási joggal.</td>
    </tr>
    <tr>
       <td>Objektumok módosítása:</td>
-      <td>...</td>
+      <td>Az alkalmazáson belül mindenhez rendelkezik írási joggal.</td>
    </tr>
 </table>
