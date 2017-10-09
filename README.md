@@ -5,9 +5,13 @@ Sevcsik Marcell (<b>...</b>) , Peitli Zoltán (<b>C14ZVE</b>)
 
 ## 1) Feladatleírás
 
+Költségkövető rendszer cégeknek. Az alkalmazás lehetőséget biztosít az adott cégnek, hogy monitorozza az új projektek létrehozásához, illetve a már meglévők továbbfejlesztéséhez szükséges anyagi forrást. Amennyiben az adott projekt rendelkezik a szükséges anyagi háttérrel, igényelhet továbbfejlesztéseket a keret kimerültéig. A felhasználó ezáltal láthatja a rendelkezésére álló büdzsét, az igényelhető fejlesztéseket és azok költségét is. A felhasználó lényegében a projektet reprezentálja.
+
 ## 2) Funkcionális követelmények
  
-#####   2.1) 
+Legyen lehetőség bejelentkezni az alkalmazásba a létező felhasználókkal (autentikáció). Regisztrációra nincs szükség, a felhasználók többsége előre definiált. A bejelentkezés során felmerülő problémáról legyen lehetőség visszajelzést küldeni az admin usernek. Új projekt indításakor keletkezik új felhasználó, ezt csak az admin user hozhatja létre. A felhasználóknak legyen lehetőségük az anyagi limit eléréséig új fejlesztéseket igényelni. Ez egy űrlap kitöltésével valósul meg. Amennyiben elérik a keretet, erről az alkalmazás tájékoztassa a felhasználót. Legyen lehetőség a rosszul felvett tételek szerkesztésére, - és amennyiben még nem kezdődött el a fejlesztés - törlésére is.
+
+Az admin felhasználó látja el a jóváhagyó szerepkört. Miután elfogadja a projekt fejlesztési igényét, azt a sima user már nem törölheti vagy szerkesztheti. Ezek a funkciók innentől csak az admin felhasználó számára elérhetőek. Továbbá az admin felhasználó jogköre a projektek anyagi keretének bővítése, új projekt indítása és az autentikációnál felmerülő problémák kezelése.
    
 ## 3) Nem funkcionális követelmények
 
