@@ -1,7 +1,7 @@
 # Budget Tracker
 Alkalmazások fejlesztése 2017
 
-Sevcsik Marcell (<b>...</b>) , Peitli Zoltán (<b>C14ZVE</b>)
+Sevcsik Marcell (<b>JN8A1P</b>) , Peitli Zoltán (<b>C14ZVE</b>)
 
 ## 1) Feladatleírás
 
