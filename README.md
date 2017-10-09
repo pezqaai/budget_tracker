@@ -25,10 +25,10 @@ Az admin felhasználó látja el a jóváhagyó szerepkört. Miután elfogadja a
 
 ## 4) Fogalomjegyzék
 
-Felhasználó (user): A felhasználó az a személy (végfelhasználó, end-user) vagy szoftver ágens, aki egy számítógépes vagy számítógép-hálózati szolgáltatás használója. A felhasználóhoz gyakran felhasználói fiók tartozik, amit felhasználói név (username, screen name, nick vagy handle) azonosít.
-Jelszó: A jelszó, vagy más néven kulcsszó, kódszó, kód, vagy jelmondat, egy jelből vagy jelsorból álló kifejezés, melyet azonosításnál, illetve hitelesítéshez használunk.
-Alkalmazás: Az alkalmazás egy számítógépes program, ami egy fordítóprogram segítségével készül el egy forráskódból.
-Autentikáció: A felhasználó adatainak ellenőrzése az alkalmazásba történő belépés során.
+   * <b>Felhasználó (user):</b> A felhasználó az a személy (végfelhasználó, end-user) vagy szoftver ágens, aki egy számítógépes vagy számítógép-hálózati szolgáltatás használója. A felhasználóhoz gyakran felhasználói fiók tartozik, amit felhasználói név (username, screen name, nick vagy handle) azonosít.
+   * <b>Jelszó:</b> A jelszó, vagy más néven kulcsszó, kódszó, kód, vagy jelmondat, egy jelből vagy jelsorból álló kifejezés, melyet azonosításnál, illetve hitelesítéshez használunk.
+   * <b>Alkalmazás:</b> Az alkalmazás egy számítógépes program, ami egy fordítóprogram segítségével készül el egy forráskódból.
+   * <b>Autentikáció:</b> A felhasználó adatainak ellenőrzése az alkalmazásba történő belépés során.
 
 ## 5) Szerepkörök
 
