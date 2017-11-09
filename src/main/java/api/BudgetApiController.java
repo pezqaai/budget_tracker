@@ -60,7 +60,7 @@ public class BudgetApiController {
     @Role({USER, ADMIN})
     @PostMapping("/{id}/request")
     private ResponseEntity addRequest(@PathVariable int id, @RequestBody BudgetRequest request) {
-        //BudgetService.addRequest(id, request); <-- NEM JÓ
+        budgetService.addRequest(id, request);
         return ResponseEntity.ok().build();
     }
 }
