@@ -1,6 +1,7 @@
 package service;
 
 import model.Budget;
+import model.BudgetRequest;
 import model.User;
 import repository.BudgetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,16 +39,20 @@ public class BudgetService {
 
     public Budget update(int id, Budget budget) {
         Budget currentBudget = budgetRepository.findOne(id);
-
         currentBudget.setStatus(budget.getStatus());
         return budgetRepository.save(currentBudget);
     }
 
-    public void delete(int id) {
-        budgetRepository.delete(id);
-    }
+    public void delete(int id) { budgetRepository.delete(id); }
 
     public Budget read(int id) {
         return budgetRepository.findOne(id);
+    }
+
+    public void addRequest(int id, BudgetRequest request) {
+        Budget budget = budgetRepository.findOne(id);
+        request.setTimestamp(Timestamp.valueOf(LocalDateTime.now()));
+        budget.getRequests().add(request);
+        budgetRepository.save(budget);
     }
 }

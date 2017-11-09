@@ -1,6 +1,7 @@
 package api;
 
 import model.Budget;
+import model.BudgetRequest;
 import service.BudgetService;
 import service.UserService;
 import service.annotations.Role;
@@ -53,6 +54,13 @@ public class BudgetApiController {
     @DeleteMapping("/{id}")
     private ResponseEntity delete(@PathVariable int id) {
         budgetService.delete(id);
+        return ResponseEntity.ok().build();
+    }
+
+    @Role({USER, ADMIN})
+    @PostMapping("/{id}/request")
+    private ResponseEntity addRequest(@PathVariable int id, @RequestBody BudgetRequest request) {
+        //BudgetService.addRequest(id, request); <-- NEM JÓ
         return ResponseEntity.ok().build();
     }
 }

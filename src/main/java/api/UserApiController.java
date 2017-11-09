@@ -39,6 +39,11 @@ public class UserApiController {
             return ResponseEntity.badRequest().build();
         }
     }
+    @GetMapping("/logout")
+    public ResponseEntity logout(@RequestBody User user) {
+        this.userService.setUser(null);
+        return ResponseEntity.ok().build();
+    }
     @Role(ADMIN)
     @PostMapping("/register")
     public ResponseEntity<User> register(@RequestBody User user) {
