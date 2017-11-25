@@ -1,4 +1,4 @@
-package model;
+package alk_fejl.budget_t.model;
 
 import lombok.Data;
 

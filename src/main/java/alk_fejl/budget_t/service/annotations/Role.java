@@ -1,6 +1,6 @@
-package service.annotations;
+package alk_fejl.budget_t.service.annotations;
 
-import model.User;
+import alk_fejl.budget_t.model.User;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

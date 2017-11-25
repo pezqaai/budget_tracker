@@ -1,7 +1,7 @@
-package controller;
+package alk_fejl.budget_t.controller;
 
-import model.User;
-import service.UserService;
+import alk_fejl.budget_t.model.User;
+import alk_fejl.budget_t.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

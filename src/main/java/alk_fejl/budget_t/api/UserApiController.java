@@ -1,18 +1,18 @@
-package api;
+package alk_fejl.budget_t.api;
 
-import model.User;
-import service.UserService;
-import service.annotations.Role;
-import service.exceptions.UserNotValidException;
+import alk_fejl.budget_t.model.User;
+import alk_fejl.budget_t.service.UserService;
+import alk_fejl.budget_t.service.annotations.Role;
+import alk_fejl.budget_t.service.exceptions.UserNotValidException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import static model.User.Role.ADMIN;
-import static model.User.Role.USER;
+import static alk_fejl.budget_t.model.User.Role.ADMIN;
+import static alk_fejl.budget_t.model.User.Role.USER;
 
 @RestController
-@RequestMapping("/api/user")
+@RequestMapping("/alk_fejl/budget_t/api/user")
 public class UserApiController {
 
     private final UserService userService;

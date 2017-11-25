@@ -1,9 +1,9 @@
-package service;
+package alk_fejl.budget_t.service;
 
-import model.Budget;
-import model.BudgetRequest;
-import model.User;
-import repository.BudgetRepository;
+import alk_fejl.budget_t.model.Budget;
+import alk_fejl.budget_t.model.BudgetRequest;
+import alk_fejl.budget_t.model.User;
+import alk_fejl.budget_t.repository.BudgetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

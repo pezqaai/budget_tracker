@@ -1,14 +1,12 @@
-package service;
+package alk_fejl.budget_t.service;
 
-import model.User;
-import repository.UserRepository;
-import service.exceptions.UserNotValidException;
+import alk_fejl.budget_t.model.User;
+import alk_fejl.budget_t.repository.UserRepository;
+import alk_fejl.budget_t.service.exceptions.UserNotValidException;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.annotation.SessionScope;
-
-import static model.User.Role.USER;
 
 
 @Service

@@ -1,8 +1,8 @@
-package config;
+package alk_fejl.budget_t.config;
 
-import model.User;
-import service.UserService;
-import service.annotations.Role;
+import alk_fejl.budget_t.model.User;
+import alk_fejl.budget_t.service.UserService;
+import alk_fejl.budget_t.service.annotations.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;

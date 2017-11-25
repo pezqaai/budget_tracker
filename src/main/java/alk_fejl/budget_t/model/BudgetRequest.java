@@ -1,4 +1,4 @@
-package model;
+package alk_fejl.budget_t.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,6 +24,9 @@ public class BudgetRequest extends BaseEntity {
 
     @Column(nullable = false)
     private int needed_funds;
+
+    @Column(nullable = false)
+    private Budget.Status status;
 
     @JoinColumn
     @ManyToOne(targetEntity = Budget.class)
