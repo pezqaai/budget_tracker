@@ -12,7 +12,7 @@ import static alk_fejl.budget_t.model.User.Role.ADMIN;
 import static alk_fejl.budget_t.model.User.Role.USER;
 
 @RestController
-@RequestMapping("/alk_fejl/budget_t/api/user")
+@RequestMapping("/api/user")
 public class UserApiController {
 
     private final UserService userService;
@@ -40,7 +40,7 @@ public class UserApiController {
         }
     }
     @GetMapping("/logout")
-    public ResponseEntity logout(@RequestBody User user) {
+    public ResponseEntity logout() {
         this.userService.setUser(null);
         return ResponseEntity.ok().build();
     }

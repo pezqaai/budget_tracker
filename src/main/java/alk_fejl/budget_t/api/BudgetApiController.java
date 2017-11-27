@@ -13,7 +13,7 @@ import static alk_fejl.budget_t.model.User.Role.ADMIN;
 import static alk_fejl.budget_t.model.User.Role.USER;
 
 @RestController
-@RequestMapping("/alk_fejl/budget_t/api/budget")
+@RequestMapping("/api/budget")
 public class BudgetApiController {
 
     @Autowired
