@@ -21,6 +21,7 @@ import { BudgetsComponent } from './pages/budget/budgets/budgets.component';
 import { AddBudgetsComponent } from './pages/budget/add-budgets/add-budgets.component';
 import { BudgetRequestsComponent } from './pages/budget/budget-requests/budget-requests.component';
 import { HelpComponent } from './pages/help/help.component';
+import {UserService} from "./services/user.service";
 
 @NgModule({
   declarations: [
@@ -45,7 +46,7 @@ import { HelpComponent } from './pages/help/help.component';
     BrowserAnimationsModule,
     MaterialItemsModule
   ],
-  providers: [AuthService, BudgetService, RouteGuard],
+  providers: [AuthService, BudgetService, RouteGuard, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

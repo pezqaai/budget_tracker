@@ -5,15 +5,17 @@ export class Role {
 }
 
 export class User {
+  id: number;
   username: String;
   password: String;
   email: String;
   role: String;
 
-  constructor(username?: String, password?: String, email?: String, role?: String) {
+  constructor(username?: String, password?: String, email?: String, role?: String, id?:number) {
     this.username = username || "";
     this.password = password || "";
     this.email = email || "";
     this.role = role || Role.GUEST;
+    this.id = id;
   }
 }

@@ -23,7 +23,7 @@ public class UserApiController {
     }
 
     @Role({USER,ADMIN})
-    @GetMapping
+    @GetMapping()
     public ResponseEntity<User> user() {
         if (userService.isLoggedIn()) {
             return ResponseEntity.ok(userService.getUser());
@@ -39,6 +39,25 @@ public class UserApiController {
             return ResponseEntity.badRequest().build();
         }
     }
+    @Role({ADMIN})
+    @GetMapping("/all")
+    private ResponseEntity<Iterable<User>> list() {
+        Iterable<User> users = userService.users();
+        return ResponseEntity.ok(users);
+    }
+
+    @Role(ADMIN)
+    @PutMapping("/{id}")
+    private ResponseEntity<User> update(@PathVariable int id, @RequestBody User user) {
+        User updated = userService.update(id, user);
+        return ResponseEntity.ok(updated);
+    }
+    @Role(ADMIN)
+    @DeleteMapping("/{id}")
+    private ResponseEntity delete(@PathVariable int id) {
+        userService.delete(id);
+        return ResponseEntity.ok().build();
+    }
     @GetMapping("/logout")
     public ResponseEntity logout() {
         this.userService.setUser(null);
@@ -47,6 +66,7 @@ public class UserApiController {
     @Role(ADMIN)
     @PostMapping("/register")
     public ResponseEntity<User> register(@RequestBody User user) {
-        return ResponseEntity.ok(userService.register(user));
+        User saved = userService.register(user);
+        return ResponseEntity.ok(saved);
     }
 }

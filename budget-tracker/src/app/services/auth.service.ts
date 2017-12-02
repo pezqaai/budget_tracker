@@ -25,11 +25,7 @@ export class AuthService {
 
   register(user: User) {
     return this.http.post(Server.routeTo(Routes.REGISTER), user)
-      .map(res => {
-        this.isLoggedIn = true;
-        this.user = res.json();
-        return this.user;
-      })
+      .map(res => res.json())
   }
 
   logout() {

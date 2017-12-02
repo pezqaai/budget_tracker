@@ -11,14 +11,13 @@ import {NavigationEnd, Router} from "@angular/router";
 export class MenuComponent implements OnInit {
 
   private common: MenuItem[] = [
-    {link: '/stats', title: 'Statistics'},
     {link: '/help', title: 'Help'}
   ];
 
   private roleMenus = new Map<String, MenuItem[]>([
     [Role.GUEST, [...this.common]],
     [Role.USER, [...this.common, {link: '/budgets', title: 'Budgets'}]],
-    [Role.ADMIN, [{link: '/stats', title: 'Statistics'}, {link: '/budgets', title: 'Budgets'},{link:'/register',title: 'Register'}]]
+    [Role.ADMIN, [{link: '/stats', title: 'Statistics'}, {link: '/budgets', title: 'Budgets'},{link:'/register',title: 'Add New User'}]]
   ]);
 
   menus: MenuItem[];

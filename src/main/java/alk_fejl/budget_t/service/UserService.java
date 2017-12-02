@@ -1,5 +1,6 @@
 package alk_fejl.budget_t.service;
 
+import alk_fejl.budget_t.model.Budget;
 import alk_fejl.budget_t.model.User;
 import alk_fejl.budget_t.repository.UserRepository;
 import alk_fejl.budget_t.service.exceptions.UserNotValidException;
@@ -7,6 +8,10 @@ import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.annotation.SessionScope;
+
+import java.util.Collections;
+
+import static alk_fejl.budget_t.model.User.Role.USER;
 
 
 @Service
@@ -18,6 +23,18 @@ public class UserService {
 
     private User user;
 
+    public Iterable<User> users() { return userRepository.findAll();}
+
+    public User update(int id, User user) {
+        User currentUser = userRepository.findOne(id);
+        currentUser.setEmail(user.getEmail());
+        currentUser.setPassword(user.getPassword());
+        currentUser.setUsername(user.getUsername());
+        return userRepository.save(currentUser);
+    }
+
+    public void delete(int id) { userRepository.delete(id); }
+
     public User login(User user) throws UserNotValidException {
         if (isValid(user)) {
             return this.user = userRepository.findByUsername(user.getUsername()).get();
@@ -26,10 +43,9 @@ public class UserService {
     }
 
     public User register(User user) {
-        //user.setRole(USER);
-        //this.user =
+        user.setRole(USER);
         userRepository.save(user);
-        return user;
+        return this.user;
     }
 
     public boolean isValid(User user) {

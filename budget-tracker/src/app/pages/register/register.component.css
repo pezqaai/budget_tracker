@@ -1,0 +1,13 @@
+#register-page {
+  text-align: center;
+}
+.page-body
+{
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 2em;
+}
+.page-card
+{
+  margin-top: 20px;
+}
