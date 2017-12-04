@@ -12,20 +12,24 @@ import {Budget} from "../../../model/Budget";
 })
 export class BudgetsComponent {
 
-  displayedColumns: String[] = ['description', 'location', 'status', 'timestamp','funds','edit'];
+  displayedColumns: String[] = ['user','description', 'location', 'status', 'timestamp','funds','edit'];
   budgets: DataSource<any> = new BudgetsDataSource(this.budgetService);
 
   constructor(private budgetService: BudgetService) {
   }
 
+
+  refresh(){
+    this.budgets = new BudgetsDataSource(this.budgetService)
+  }
+
   delete(id: number) {
     this.budgetService.delete(id)
       .subscribe(
-        res => console.log(res),
-        err => console.log(err)
+        res => this.refresh(),
+        err => this.refresh()
       );
   }
-
   toDate(timestamp: number): Date {
     return new Date(timestamp)
   }

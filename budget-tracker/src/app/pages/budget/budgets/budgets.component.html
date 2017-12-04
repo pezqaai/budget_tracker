@@ -6,6 +6,11 @@
   <a mat-raised-button routerLink="/budgets/add" class="mat-accent">Add new budget</a>
 
   <mat-table #table [dataSource]="budgets">
+    <ng-container matColumnDef="user">
+      <mat-header-cell *matHeaderCellDef> User</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.user.username}}</mat-cell>
+    </ng-container>
+
     <ng-container matColumnDef="description">
       <mat-header-cell *matHeaderCellDef> Description</mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.description}}</mat-cell>

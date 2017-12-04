@@ -52,6 +52,17 @@ public class UserService {
         return userRepository.findByUsernameAndPassword(user.getUsername(), user.getPassword()).isPresent();
     }
 
+    public User newBudget(Budget budget){
+        User newBudgetUser = userRepository.findOne(user.getId());
+        if(newBudgetUser != null){
+            newBudgetUser.getBudgets().add(budget);
+            userRepository.save(newBudgetUser);
+            user = newBudgetUser;
+            return newBudgetUser;
+        }
+        return null;
+    }
+
     public boolean isLoggedIn() {
         return user != null;
     }

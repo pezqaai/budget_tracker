@@ -17,6 +17,9 @@ public class BudgetService {
     @Autowired
     private BudgetRepository budgetRepository;
 
+    @Autowired
+    private UserService  userService ;
+
     public Iterable<Budget> budgets() {
         return budgetRepository.findAll();
     }
@@ -32,9 +35,13 @@ public class BudgetService {
     }
 
     public Budget create(Budget budget) {
+        System.out.print(budget);
         budget.setStatus(Budget.Status.SUBMITED);
         budget.setTimestamp(Timestamp.valueOf(LocalDateTime.now()));
-        return budgetRepository.save(budget);
+        budget.setUser(userService.getUser());
+        budgetRepository.save(budget);
+        userService.newBudget(budget);
+        return budget;
     }
 
     public Budget update(int id, Budget budget) {
