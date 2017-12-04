@@ -1,0 +1,10 @@
+.page-body
+{
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 2em;
+}
+.page-card
+{
+  margin-top: 20px;
+}

@@ -25,8 +25,8 @@ public class BudgetApiController {
     @Role({ADMIN, USER})
     @GetMapping
     private ResponseEntity<Iterable<Budget>> list() {
-        Iterable<Budget> issues = budgetService.listByRole(userService.getUser());
-        return ResponseEntity.ok(issues);
+        Iterable<Budget> budgets = budgetService.listByRole(userService.getUser());
+        return ResponseEntity.ok(budgets);
     }
 
     @Role({ADMIN, USER})
