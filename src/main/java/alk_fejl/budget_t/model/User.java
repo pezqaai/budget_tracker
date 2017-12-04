@@ -38,4 +38,9 @@ public class User extends BaseEntity {
     @JsonIgnore
     @OneToMany(targetEntity = Budget.class, cascade = CascadeType.ALL)
     private List<Budget> budgets;
+
+    @Override
+    public String toString() {
+        return "User: {id: "+this.getId()+" version "+this.getVersion()+" name "+username+"}";
+    }
 }

@@ -32,7 +32,6 @@ public class BudgetApiController {
     @Role({ADMIN, USER})
     @PostMapping
     private ResponseEntity<Budget> create(@RequestBody Budget budget) {
-        System.out.print(budget);
         Budget saved = budgetService.create(budget);
         return ResponseEntity.ok(saved);
     }

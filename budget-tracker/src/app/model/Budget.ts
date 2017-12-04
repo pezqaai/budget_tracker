@@ -1,6 +1,7 @@
 
 
 import {User} from "./User";
+import {BudgetRequest} from "./BudgetRequest";
 
 export class BudgetStatus {
   static SUBMITED: String = "SUBMITED";
@@ -16,7 +17,7 @@ export class Budget {
   description: String;
   location: String;
   available_funds: Number;
-  requests: String[];
+  requests: BudgetRequest[];
 
   constructor(description?: String, location?: String, available_funds?:Number, user?: User, status?: String, timeStamp?: Date, id?: number) {
     this.user = user;

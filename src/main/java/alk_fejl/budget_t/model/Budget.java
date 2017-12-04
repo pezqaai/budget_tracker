@@ -18,6 +18,7 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 public class Budget extends BaseEntity {
 
+
     @JoinColumn(referencedColumnName = "id")
     @ManyToOne(targetEntity = User.class)
     private User user;
@@ -38,9 +39,14 @@ public class Budget extends BaseEntity {
     @Column(nullable = false)
     private int available_funds ;
 
-    @JsonIgnore
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, targetEntity = BudgetRequest.class)
+    @JoinColumn(referencedColumnName = "id")
+    @OneToMany(cascade = CascadeType.ALL,targetEntity = BudgetRequest.class)
     private List<BudgetRequest> requests;
+
+    @Override
+    public String toString() {
+        return "Budget: {id: "+this.getId()+" version "+this.getVersion()+" text "+description+"}";
+    }
 
     public enum Status {
         SUBMITED, ONGOING, APPROVED

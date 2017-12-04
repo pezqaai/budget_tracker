@@ -1,3 +1,64 @@
-<p>
-  budget-requests works!
-</p>
+<div class="page-body">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title><h1>Project: {{budget.description}}</h1></mat-card-title>
+
+      <mat-card-subtitle>
+        <mat-form-field color="accent">
+          <mat-select placeholder="Status" (change)="updateStatus($event)" [(ngModel)]="budget.status" >
+            <mat-option *ngFor="let status of statuses" [value]="budget.status" >
+              {{ status }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <h2 class="mat-h2">Department: {{budget.location}}</h2>
+
+      <p>Requests:</p>
+
+          <mat-card *ngFor="let element of budget.requests" >
+            <mat-card-title>{{element.request}}</mat-card-title>
+            <mat-card-subtitle>{{element.needed_funds}}</mat-card-subtitle>
+            <mat-card-content>
+              <mat-form-field color="accent">
+              <mat-select placeholder="{{element.status}}" (change)="updateRequestStatus($event,element)" [(ngModel)]="budget.status">
+                <mat-option *ngFor="let status of statuses" [value]="budget.status">
+                  {{ status }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            </mat-card-content>
+
+          </mat-card>
+
+    </mat-card-content>
+    <mat-card>
+      <mat-card-title>New Request</mat-card-title>
+      <mat-card-content>
+    <form [formGroup]="requestForm" novalidate>
+      <div class="form-control">
+        <mat-form-field class="example-full-width" color="accent">
+          <input matInput placeholder="Request" formControlName="request">
+          <mat-error *ngIf="request.hasError('required')">
+            Description is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="form-control">
+        <mat-form-field class="example-full-width" color="accent">
+          <input matInput placeholder="Needed Funds" formControlName="funds">
+          <mat-error *ngIf="funds.hasError('required')">
+            Description is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <button mat-raised-button class="mat-accent" (click)="submit()" [disabled]="!requestForm.valid">Send</button>
+      </div>
+    </form>
+      </mat-card-content>
+    </mat-card>
+  </mat-card>
+
+</div>

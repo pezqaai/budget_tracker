@@ -33,6 +33,7 @@ public class UserService {
         return userRepository.save(currentUser);
     }
 
+    //TODO:FIX needed duo to database connections
     public void delete(int id) { userRepository.delete(id); }
 
     public User login(User user) throws UserNotValidException {

@@ -1,5 +1,6 @@
 package alk_fejl.budget_t.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -28,7 +29,13 @@ public class BudgetRequest extends BaseEntity {
     @Column(nullable = false)
     private Budget.Status status;
 
-    @JoinColumn
+    @JsonIgnore
     @ManyToOne(targetEntity = Budget.class)
     private Budget budget;
+
+    @Override
+    public String toString() {
+        return "Request: {id: "+this.getId()+" version "+this.getVersion()+" text "+request+"}";
+    }
 }
+

@@ -4,6 +4,7 @@ import alk_fejl.budget_t.model.Budget;
 import alk_fejl.budget_t.model.BudgetRequest;
 import alk_fejl.budget_t.model.User;
 import alk_fejl.budget_t.repository.BudgetRepository;
+import alk_fejl.budget_t.repository.BudgetRequestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +17,9 @@ public class BudgetService {
 
     @Autowired
     private BudgetRepository budgetRepository;
+
+    @Autowired
+    private BudgetRequestRepository requestRepository;
 
     @Autowired
     private UserService  userService ;
@@ -35,7 +39,6 @@ public class BudgetService {
     }
 
     public Budget create(Budget budget) {
-        System.out.print(budget);
         budget.setStatus(Budget.Status.SUBMITED);
         budget.setTimestamp(Timestamp.valueOf(LocalDateTime.now()));
         budget.setUser(userService.getUser());
@@ -49,7 +52,7 @@ public class BudgetService {
         currentBudget.setStatus(budget.getStatus());
         return budgetRepository.save(currentBudget);
     }
-
+        //TODO:FIX needed duo to database connections
     public void delete(int id) { budgetRepository.delete(id); }
 
     public Budget read(int id) {
@@ -57,9 +60,14 @@ public class BudgetService {
     }
 
     public void addRequest(int id, BudgetRequest request) {
+
         Budget budget = budgetRepository.findOne(id);
         request.setTimestamp(Timestamp.valueOf(LocalDateTime.now()));
+        request.setStatus(Budget.Status.SUBMITED);
+        request.setBudget(budget);
+        requestRepository.save(request);
         budget.getRequests().add(request);
+        System.out.print(budget.getRequests());
         budgetRepository.save(budget);
     }
 }
