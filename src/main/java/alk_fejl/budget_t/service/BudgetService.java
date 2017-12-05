@@ -53,7 +53,13 @@ public class BudgetService {
         return budgetRepository.save(currentBudget);
     }
         //TODO:FIX needed duo to database connections
-    public void delete(int id) { budgetRepository.delete(id); }
+    public void delete(int id)
+    {
+        Budget del = budgetRepository.findOne(id);
+        int user = del.getUser().getId();
+        userService.delBudget(user,del);
+        budgetRepository.delete(id);
+    }
 
     public Budget read(int id) {
         return budgetRepository.findOne(id);
@@ -69,5 +75,22 @@ public class BudgetService {
         budget.getRequests().add(request);
         System.out.print(budget.getRequests());
         budgetRepository.save(budget);
+    }
+    public void modRequest(int id, BudgetRequest request) {
+
+        Budget budget = budgetRepository.findOne(id);
+        BudgetRequest budgetRequest = requestRepository.findOne(request.getId());
+        budgetRequest.setStatus(request.getStatus());
+        requestRepository.save(budgetRequest);
+        //budget.getRequests().set(budget.getRequests().indexOf(request),budgetRequest);
+        //budgetRepository.save(budget);
+    }
+    public void delRequest(int request) {
+
+        BudgetRequest budgetRequest = requestRepository.findOne(request);
+        Budget budget = budgetRepository.findOne(budgetRequest.getBudget().getId());
+        budget.getRequests().remove(budgetRequest);
+        budgetRepository.save(budget);
+        requestRepository.delete(budgetRequest);
     }
 }

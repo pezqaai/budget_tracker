@@ -4,31 +4,37 @@
       <mat-card-title><h1>Project: {{budget.description}}</h1></mat-card-title>
 
       <mat-card-subtitle>
-        <mat-form-field color="accent">
-          <mat-select placeholder="Status" (change)="updateStatus($event)" [(ngModel)]="budget.status" >
-            <mat-option *ngFor="let status of statuses" [value]="budget.status" >
-              {{ status }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
+        <h2 class="mat-h2">Department: {{budget.location}}</h2>
       </mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-      <h2 class="mat-h2">Department: {{budget.location}}</h2>
+      <mat-form-field color="accent">
+        <mat-select placeholder="Current Status:{{budget.status}}" (change)="updateStatus($event)" [(ngModel)]="budget.status" >
+          <mat-option *ngFor="let status of statuses" [value] = "budget.status">
+            {{ status }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
 
       <p>Requests:</p>
 
-          <mat-card *ngFor="let element of budget.requests" >
-            <mat-card-title>{{element.request}}</mat-card-title>
-            <mat-card-subtitle>{{element.needed_funds}}</mat-card-subtitle>
+          <mat-card *ngFor="let element of budget.requests" class="page-card">
+            <mat-card-title>Request: {{element.request}}</mat-card-title>
+            <mat-card-subtitle><p>Needed Funds: {{element.needed_funds}}</p></mat-card-subtitle>
             <mat-card-content>
+              <mat-card>
+                <mat-card-subtitle>Change:</mat-card-subtitle>
+                <mat-card-content>
               <mat-form-field color="accent">
-              <mat-select placeholder="{{element.status}}" (change)="updateRequestStatus($event,element)" [(ngModel)]="budget.status">
-                <mat-option *ngFor="let status of statuses" [value]="budget.status">
+              <mat-select placeholder="Current Status:{{element.status}}" (change)="updateRequestStatus($event,element)" [(ngModel)]="budget.status">
+                <mat-option *ngFor="let status of statuses" [value] = "budget.status">
                   {{ status }}
                 </mat-option>
               </mat-select>
             </mat-form-field>
+                <button mat-raised-button (click)="deleteRequest(element.id)" class="mat-primary">Delete</button>
+                </mat-card-content>
+              </mat-card>
             </mat-card-content>
 
           </mat-card>

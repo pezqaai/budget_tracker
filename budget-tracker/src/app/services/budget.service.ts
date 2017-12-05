@@ -38,8 +38,13 @@ export class BudgetService {
   }
 
   sendRequest(id: number, request: BudgetRequest) {
-    console.log(request)
     return this.http.post(Server.routeTo(Routes.BUDGETS + '/' + id + '/request'), request)
+  }
+  updateRequest(id: number, request: BudgetRequest) {
+    return this.http.put(Server.routeTo(Routes.BUDGETS + '/' + id + '/request'), request)
+  }
+  deleteRequest(id: number) {
+    return this.http.delete(Server.routeTo(Routes.BUDGETS + '/' + id + '/request'))
   }
 
 }

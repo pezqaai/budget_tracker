@@ -23,8 +23,7 @@ export class BudgetRequestsComponent implements OnInit {
   statuses: String[] = [BudgetStatus.SUBMITED, BudgetStatus.ONGOING, BudgetStatus.APPROVED];
 
   constructor(private budgetService: BudgetService,
-              private route: ActivatedRoute,
-              private router: Router) {
+              private route: ActivatedRoute) {
     this.route.params.subscribe(
       params => this.id = params.id,
       err => console.log(err)
@@ -55,10 +54,16 @@ export class BudgetRequestsComponent implements OnInit {
   updateRequestStatus(event,request) {
     this.req = request;
     this.req.status = event.source.triggerValue
-    this.budget.requests[request] = this.req;
-    this.budgetService.update(this.budget)
+    this.budgetService.updateRequest(this.budget.id,this.req)
       .subscribe(
         issue => console.log('ok'),
+        err => console.log(err)
+      )
+  }
+  deleteRequest(id) {
+    this.budgetService.deleteRequest(id)
+      .subscribe(
+        issue => this.reload(),
         err => console.log(err)
       )
   }
