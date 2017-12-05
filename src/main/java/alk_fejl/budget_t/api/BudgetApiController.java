@@ -63,4 +63,16 @@ public class BudgetApiController {
         budgetService.addRequest(id, request);
         return ResponseEntity.ok().build();
     }
+    @Role({USER, ADMIN})
+    @PutMapping("/{id}/request")
+    private ResponseEntity modRequest(@PathVariable int id, @RequestBody BudgetRequest request) {
+        budgetService.modRequest(id, request);
+        return ResponseEntity.ok().build();
+    }
+    @Role({USER, ADMIN})
+    @DeleteMapping("/{id}/request")
+    private ResponseEntity delRequest(@PathVariable int id) {
+        budgetService.delRequest(id);
+        return ResponseEntity.ok().build();
+    }
 }

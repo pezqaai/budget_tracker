@@ -63,6 +63,12 @@ public class UserService {
         }
         return null;
     }
+    public User delBudget(int id, Budget delBudget)
+    {
+        User user = userRepository.findOne(id);
+        user.getBudgets().remove(delBudget);
+        return userRepository.save(user);
+    }
 
     public boolean isLoggedIn() {
         return user != null;
