@@ -11,4 +11,5 @@ import java.util.List;
 @Repository
 public interface BudgetRepository extends CrudRepository<Budget, Integer> {
     List<Budget> findAllByUser(User user);
+    Budget findById(int id);
 }

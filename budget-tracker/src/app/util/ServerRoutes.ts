@@ -3,7 +3,7 @@ export class Routes {
   static REGISTER: String = 'user/register';
   static LOGOUT: String = 'user/logout';
   static USER: String = 'user'
-  static BUDGETS: String = 'budgets';
+  static BUDGETS: String = 'budget';
 }
 
 export class Server {

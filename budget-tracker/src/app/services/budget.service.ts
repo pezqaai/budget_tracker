@@ -4,6 +4,7 @@ import {Observable} from "rxjs/Observable";
 import {Routes, Server} from "../util/ServerRoutes";
 import {Budget} from "../model/Budget";
 import "rxjs/add/operator/map";
+import {BudgetRequest} from "../model/BudgetRequest";
 
 @Injectable()
 export class BudgetService {
@@ -36,8 +37,9 @@ export class BudgetService {
       .map(res => res.json())
   }
 
-  sendRequest(id: number, request: String) {
-    return this.http.post(Server.routeTo(Routes.BUDGETS + '/' + id + '/request'), {request})
+  sendRequest(id: number, request: BudgetRequest) {
+    console.log(request)
+    return this.http.post(Server.routeTo(Routes.BUDGETS + '/' + id + '/request'), request)
   }
 
 }

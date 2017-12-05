@@ -1,5 +1,6 @@
 package alk_fejl.budget_t.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -17,7 +18,8 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 public class Budget extends BaseEntity {
 
-    @JoinColumn
+
+    @JoinColumn(referencedColumnName = "id")
     @ManyToOne(targetEntity = User.class)
     private User user;
 
@@ -37,9 +39,14 @@ public class Budget extends BaseEntity {
     @Column(nullable = false)
     private int available_funds ;
 
-    @JoinColumn
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, targetEntity = BudgetRequest.class)
+    @JoinColumn(referencedColumnName = "id")
+    @OneToMany(cascade = CascadeType.ALL,targetEntity = BudgetRequest.class)
     private List<BudgetRequest> requests;
+
+    @Override
+    public String toString() {
+        return "Budget: {id: "+this.getId()+" version "+this.getVersion()+" text "+description+"}";
+    }
 
     public enum Status {
         SUBMITED, ONGOING, APPROVED

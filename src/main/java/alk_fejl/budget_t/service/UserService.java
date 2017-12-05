@@ -33,6 +33,7 @@ public class UserService {
         return userRepository.save(currentUser);
     }
 
+    //TODO:FIX needed duo to database connections
     public void delete(int id) { userRepository.delete(id); }
 
     public User login(User user) throws UserNotValidException {
@@ -50,6 +51,17 @@ public class UserService {
 
     public boolean isValid(User user) {
         return userRepository.findByUsernameAndPassword(user.getUsername(), user.getPassword()).isPresent();
+    }
+
+    public User newBudget(Budget budget){
+        User newBudgetUser = userRepository.findOne(user.getId());
+        if(newBudgetUser != null){
+            newBudgetUser.getBudgets().add(budget);
+            userRepository.save(newBudgetUser);
+            user = newBudgetUser;
+            return newBudgetUser;
+        }
+        return null;
     }
 
     public boolean isLoggedIn() {
