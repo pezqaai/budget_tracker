@@ -36,6 +36,11 @@
       <mat-cell *matCellDef="let element"> {{element.available_funds}}</mat-cell>
     </ng-container>
 
+    <ng-container matColumnDef="rest">
+      <mat-header-cell *matHeaderCellDef> Rest</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.rest}}</mat-cell>
+    </ng-container>
+
     <ng-container matColumnDef="edit">
       <mat-header-cell *matHeaderCellDef> Actions</mat-header-cell>
       <mat-cell *matCellDef="let element">

@@ -5,15 +5,15 @@ export class BudgetRequest {
   budget: Budget;
   timeStamp: Date;
   status: String;
-  needed_funds: Number;
+  price: Number;
   request: String;
 
-  constructor(request?: String,needed_funds?:Number, budget?: Budget, status?: String, timeStamp?: Date, id?: number) {
+  constructor(request?: String, price?:Number, budget?: Budget, status?: String, timeStamp?: Date, id?: number) {
     this.budget = budget;
     this.timeStamp = timeStamp;
     this.status = status;
     this.request = request;
-    this.needed_funds = needed_funds;
+    this.price = price;
     this.id = id;
   }
 }

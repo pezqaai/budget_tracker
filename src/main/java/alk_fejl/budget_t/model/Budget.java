@@ -1,6 +1,7 @@
 package alk_fejl.budget_t.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.sun.xml.internal.bind.v2.TODO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -36,12 +37,22 @@ public class Budget extends BaseEntity {
     @Column(nullable = false)
     private String description;
 
+
     @Column(nullable = false)
-    private int available_funds ;
+    private int available_funds;
+
+    @Column(nullable = false)
+    private int rest;
 
     @JoinColumn(referencedColumnName = "id")
     @OneToMany(cascade = CascadeType.ALL,targetEntity = BudgetRequest.class)
     private List<BudgetRequest> requests;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "USERS_BUDGET",
+            joinColumns = @JoinColumn(name = "USER_ID", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "BUDGETS_ID", referencedColumnName = "id"))
+    private List<User> Users;
 
     @Override
     public String toString() {

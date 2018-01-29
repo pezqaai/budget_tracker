@@ -43,11 +43,18 @@ public class BudgetApiController {
         return ResponseEntity.ok(read);
     }
 
-    @Role(ADMIN)
+    /*@Role(ADMIN)
     @PutMapping("/{id}")
     private ResponseEntity<Budget> update(@PathVariable int id, @RequestBody Budget budget) {
         Budget updated = budgetService.update(id, budget);
         return ResponseEntity.ok(updated);
+    }*/
+
+    @Role({USER, ADMIN})
+    @PutMapping("/{id}")
+    private ResponseEntity<Budget> updateBudget(@PathVariable int id, @RequestBody Budget budget) {
+        Budget updatedBudget = budgetService.updateBudget(id, budget);
+        return ResponseEntity.ok(updatedBudget);
     }
 
     @Role({USER, ADMIN})

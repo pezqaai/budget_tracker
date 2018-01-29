@@ -28,22 +28,34 @@ export class BudgetService {
   }
 
   read(id: number) {
+    console.log("read");
+    console.log(id);
     return this.http.get(Server.routeTo(Routes.BUDGETS) + '/' + id)
       .map(res => res.json())
   }
 
   update(budget: Budget) {
+    console.log("update_budget.service.ts");
+    return this.http.put(Server.routeTo(Routes.BUDGETS) + '/' + budget.id, budget)
+      .map(res => res.json())
+  }
+
+  updateBudget(id: number, budget: Budget) {
+    console.log("updateBudget_budget.service.ts");
     return this.http.put(Server.routeTo(Routes.BUDGETS) + '/' + budget.id, budget)
       .map(res => res.json())
   }
 
   sendRequest(id: number, request: BudgetRequest) {
+    console.log("sendRequest_budget.service.ts");
     return this.http.post(Server.routeTo(Routes.BUDGETS + '/' + id + '/request'), request)
   }
   updateRequest(id: number, request: BudgetRequest) {
+    console.log("updateRequest_budget.service.ts");
     return this.http.put(Server.routeTo(Routes.BUDGETS + '/' + id + '/request'), request)
   }
   deleteRequest(id: number) {
+    console.log("deleteRequest_budget.service.ts");
     return this.http.delete(Server.routeTo(Routes.BUDGETS + '/' + id + '/request'))
   }
 

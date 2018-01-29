@@ -47,6 +47,12 @@ public class BudgetService {
         return budget;
     }
 
+    public Budget updateBudget(int id, Budget budget) {
+        Budget currentBudget = budgetRepository.findOne(id);
+        currentBudget = budget;
+        return budgetRepository.save(currentBudget);
+    }
+
     public Budget update(int id, Budget budget) {
         Budget currentBudget = budgetRepository.findOne(id);
         currentBudget.setStatus(budget.getStatus());

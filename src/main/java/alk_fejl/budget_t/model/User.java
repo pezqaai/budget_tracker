@@ -39,6 +39,9 @@ public class User extends BaseEntity {
     @OneToMany(targetEntity = Budget.class, cascade = CascadeType.ALL)
     private List<Budget> budgets;
 
+    @ManyToMany(mappedBy = "Users")
+    private List<Budget> budget_list;
+
     @Override
     public String toString() {
         return "User: {id: "+this.getId()+" version "+this.getVersion()+" name "+username+"}";

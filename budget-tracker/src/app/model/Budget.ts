@@ -18,14 +18,16 @@ export class Budget {
   location: String;
   available_funds: Number;
   requests: BudgetRequest[];
+  rest: Number;
 
-  constructor(description?: String, location?: String, available_funds?:Number, user?: User, status?: String, timeStamp?: Date, id?: number) {
+  constructor(description?: String, location?: String, available_funds?: Number, rest?: Number, user?: User, status?: String, timeStamp?: Date, id?: number) {
     this.user = user;
     this.timeStamp = timeStamp;
     this.status = status;
     this.description = description;
     this.location = location;
     this.available_funds = available_funds;
+    this.rest = rest;
     this.id = id;
   }
 }

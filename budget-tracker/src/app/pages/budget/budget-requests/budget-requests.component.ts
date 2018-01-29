@@ -35,15 +35,33 @@ export class BudgetRequestsComponent implements OnInit {
   }
 
   private reload() {
+    console.log("reload");
     this.budgetService.read(this.id)
       .subscribe(
-        budget => this.budget = budget,
+        budget => this.initBudget(budget),
         err => console.log(err)
       )
+  }
 
+  private initBudget(budget){
+    console.log("initBudget");
+    this.budget = budget;
+    console.log("start: "+this.budget.rest);
+    this.budget.rest= budget.requests.reduce((a,b) => a-b.price,this.budget.available_funds);
+    console.log("end: "+this.budget.rest)
+  }
+
+  private reloadSubmit() {
+    console.log("reloadSubmit");
+    this.budgetService.read(this.id)
+      .subscribe(
+        budget => this.budget,
+        err => console.log(err)
+      )
   }
 
   updateStatus(event) {
+    console.log("updateStatus");
     this.budget.status = event.source.triggerValue;
     this.budgetService.update(this.budget)
       .subscribe(
@@ -51,7 +69,9 @@ export class BudgetRequestsComponent implements OnInit {
         err => console.log(err)
       )
   }
+
   updateRequestStatus(event,request) {
+    console.log("updateRequestStatus");
     this.req = request;
     this.req.status = event.source.triggerValue
     this.budgetService.updateRequest(this.budget.id,this.req)
@@ -69,13 +89,15 @@ export class BudgetRequestsComponent implements OnInit {
   }
 
   submit() {
-    this.budgetService.sendRequest(this.budget.id, new BudgetRequest(this.request.value,this.funds.value))
-      .subscribe(
-        issue => this.reload(),
-        err => console.log(err)
-      )
+    console.log("updateBudget_budget-request.component.ts");
+    this.budgetService.updateBudget(this.budget.id, this.budget).subscribe(
+      res => this.budgetService.sendRequest(this.budget.id, new BudgetRequest(this.request.value,this.funds.value))
+        .subscribe(
+          res => this.reload(),
+          err => console.log(err)),
+      err => console.log(err)
+    )
   }
-
 
   get request()
   {

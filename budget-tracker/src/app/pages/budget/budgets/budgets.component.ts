@@ -12,7 +12,7 @@ import {Budget} from "../../../model/Budget";
 })
 export class BudgetsComponent {
 
-  displayedColumns: String[] = ['user','description', 'location', 'status', 'timestamp','funds','edit'];
+  displayedColumns: String[] = ['user','description', 'location', 'status', 'timestamp','funds','rest','edit'];
   budgets: DataSource<any> = new BudgetsDataSource(this.budgetService);
 
   constructor(private budgetService: BudgetService) {
@@ -36,6 +36,7 @@ export class BudgetsComponent {
 }
 
 export class BudgetsDataSource extends DataSource<any> {
+
   constructor(private budgetService: BudgetService) {
     super();
   }

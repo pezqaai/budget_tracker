@@ -4,12 +4,15 @@
       <mat-card-title><h1>Project: {{budget.description}}</h1></mat-card-title>
 
       <mat-card-subtitle>
-        <h2 class="mat-h2">Department: {{budget.location}}</h2>
+        <h2 class="mat-h2"><span id="tab">Department: {{budget.location}}</span></h2>
+      </mat-card-subtitle>
+      <mat-card-subtitle>
+        <h2 class="mat-h2" style="color: #69f0ae"><span id="tab">Available resources: {{budget.rest}}  </span></h2>
       </mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
       <mat-form-field color="accent">
-        <mat-select placeholder="Current Status:{{budget.status}}" (change)="updateStatus($event)" [(ngModel)]="budget.status" >
+        <mat-select placeholder="Current Status: {{budget.status}}" (change)="updateStatus($event)" [(ngModel)]="budget.status" >
           <mat-option *ngFor="let status of statuses" [value] = "budget.status">
             {{ status }}
           </mat-option>
@@ -20,7 +23,7 @@
 
           <mat-card *ngFor="let element of budget.requests" class="page-card">
             <mat-card-title>Request: {{element.request}}</mat-card-title>
-            <mat-card-subtitle><p>Needed Funds: {{element.needed_funds}}</p></mat-card-subtitle>
+            <mat-card-subtitle><p>Needed Funds: {{element.price}}</p></mat-card-subtitle>
             <mat-card-content>
               <mat-card>
                 <mat-card-subtitle>Change:</mat-card-subtitle>

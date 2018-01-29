@@ -1,5 +1,5 @@
 # Budget Tracker
-Alkalmazások fejlesztése 2017
+Alkalmazások fejlesztése
 
 Sevcsik Marcell (<b>JN8A1P</b>) , Peitli Zoltán (<b>C14ZVE</b>)
 

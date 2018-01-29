@@ -24,7 +24,7 @@ public class BudgetRequest extends BaseEntity {
     private String request;
 
     @Column(nullable = false)
-    private int needed_funds;
+    private int price;
 
     @Column(nullable = false)
     private Budget.Status status;

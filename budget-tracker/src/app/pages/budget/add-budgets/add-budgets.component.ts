@@ -4,6 +4,7 @@ import {Router} from "@angular/router";
 import {BudgetService} from "../../../services/budget.service";
 import {Budget} from "../../../model/Budget";
 import {AuthService} from "../../../services/auth.service";
+import {BudgetRequest} from "../../../model/BudgetRequest";
 
 @Component({
   selector: 'app-add-budgets',
@@ -36,11 +37,17 @@ export class AddBudgetsComponent implements OnInit {
     return this.budgetForm.get('available_funds')
   }
 
+  get rest()
+  {
+    return this.budgetForm.get('available_funds')
+  }
+
   submit() {
-    this.budgetService.create(new Budget(this.description.value, this.location.value, this.available_funds.value))
+    this.budgetService.create(new Budget(this.description.value, this.location.value, this.available_funds.value, this.rest.value))
       .subscribe(
         res => this.router.navigate(['/budgets']),
         err => console.log(err)
       )
+    console.log("rest: "+this.rest.value);
   }
 }

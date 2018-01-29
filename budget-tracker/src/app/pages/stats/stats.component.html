@@ -1,3 +1,48 @@
-<p>
-  stats works!
-</p>
+<div class="page-body">
+  <!--script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+      var data = google.visualization.arrayToDataTable([
+        ['Task', 'Cost'],
+        ['Available',     10000],
+        ['Spent',      2000]
+      ]);
+
+      var options = {
+        title: 'Statistics'
+      };
+
+      var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+      chart.draw(data, options);
+    }
+  </script-->
+  <mat-card>
+    <!--div id="piechart" style="width: 450px; height: 250px;"></div-->
+    <mat-card-title>Statistics</mat-card-title>
+    <mat-card-content>
+      <mat-table #table [dataSource]="budgets">
+        <ng-container matColumnDef="description">
+          <mat-header-cell *matHeaderCellDef> Project description:</mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.description}}:</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="diagram">
+          <mat-header-cell *matHeaderCellDef> Diagram</mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.rest}} / {{element.available_funds}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="sub">
+          <mat-header-cell *matHeaderCellDef> Subprojects</mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.requests.length}}</mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    </mat-card-content>
+  </mat-card>
+</div>
